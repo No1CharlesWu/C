@@ -18,8 +18,16 @@ class Solution
                                         {'D', 500},
                                         {'M', 1000}};
 
-        res = map[s[0]]
-        for(int i = 1;i < s.length();i++)
+        res = map[s[0]];
+        for (int i = 1; i < s.length(); i++)
+        {
+            if (map[s[i]] > map[s[i - 1]])
+            {
+                res = res - 2 * map[s[i - 1]];
+            }
+
+            res = res + map[s[i]];
+        }
 
         return res;
     }
