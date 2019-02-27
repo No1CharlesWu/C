@@ -18,6 +18,22 @@ class Solution
   public:
     vector<int> sortArrayByParity(vector<int> &A)
     {
+        vector<int> res;
+        for (int i = 0; i < A.size(); i++)
+        {
+            if (A[i] % 2 == 0)
+            {
+                res.insert(res.begin(), A[i]);
+            }
+            else
+            {
+                res.push_back(A[i]);
+            }
+        }
+        return res;
+    }
+    vector<int> sortArrayByParityOld(vector<int> &A)
+    {
         for (int i = 0, j = A.size() - 1; i < j;)
         {
             swap(A[i], A[j]);
@@ -36,7 +52,15 @@ class Solution
 
 int main()
 {
-
+    Solution s;
+    vector<int> a;
+    a.push_back(0);
+    a.push_back(2);
+    vector<int> b = s.sortArrayByParity(a);
+    for (int i = 0; i < b.size(); i++)
+    {
+        cout << b[i];
+    }
     // system("pause");
     return 0;
 }
